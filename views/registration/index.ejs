@@ -1,244 +1,137 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-	<title>Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Create Account</title>
+
+  <link rel="stylesheet" href="../../assets/css/admin/bootstrap.min.css">
+
+ 
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
-<html>
-    <head>
-        <title>Login</title>
-    </head>
-    <body>
-        <form method="post" id="regform">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <fieldset>
-                <legend>Registration</legend>
-                <table>
-                	<tr>
-                        <td>First Name </td>
-                        <td><input type="text" name="fname" id="fname" max="50">*</td>
-                        <td><span id="error1" style="color: red"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name </td>
-                        <td><input type="text" name="lname" id="lname" max="50">*</td>
-                        <td><span id="error2" style="color: red"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Email </td>
-                        <td><input type="email" name="email" id="email" max="100">*</td>
-                        <td><span id="error3" style="color: red"></span><span id="dupEmail" style="color: red"></span></td>
-                        <td><input type="hidden" name="errEmail" id="errEmail"></td>
-                    </tr>
-                    <tr>
-                        <td>Username</td>
-                        <td><input type="text" name="username" id="username" max="10">*</td>
-                        <td><span id="error4" style="color: red"></span><span id="dupUsername" style="color: red"></span></td>
-                        <td><input type="hidden" name="errUsername" id="errUsername"></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" id ="password" max="15" min="6" >*</td>
-                        <td><span id="error5" style="color: red"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Confirm password</td>
-                        <td><input type="password" name="cpassword" id ="cpassword" max="15" min="6" >*</td>
-                        <td><span id="error6" style="color: red"></span><span id="error7" style="color: red"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Date of birth</td>
-                        <td><input type="date" name="dob" id="dob" >*</td>
-                        <td><span id="error8" style="color: red"></span></td>
-                    </tr>
-                    <tr>
-                        <td>School</td>
-                        <td><input type="text" name="school" id="school" max="20"></td>
-                    </tr>
-                    <tr>
-                        <td>College</td>
-                        <td><input type="text" name="college" id="college" max="20"></td>
-                    </tr>
-                    <tr>
-                        <td>University</td>
-                        <td><input type="text" name="uni" id="uni" max="20"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" name="submit" value="Registration"></td>
-                    </tr>
-                    <div id="warn-div" style="color: red"></div>
-                </table>
-            </fieldset>
-        </form>
-        <script>
-        	$('#email').change(function(e)
-        	{	
-        		var email=$('#email').val();
-        		$.ajax({
-	                    url: 'registration/checking',
-	                    method: 'POST',
-	                    dataType: 'JSON',
-	                    data:{
-	            			email : email,
-	                    },
-	                    success: function (data) {
-	                    	console.log(data);
-	                        if (data.check == 'true') {
-	                        	$('#dupEmail').html("");
-	                            $('#errEmail').val("");
-	                            
-	                        } else {
-	                            $('#dupEmail').html("Email already exists");
-	                            $('#errEmail').val("error");
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Chotushkon</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+      data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-	                        }
-	                    },
-	                });
-        	})
 
-        	$('#username').change(function(e)
-        	{	
-        		var uname=$('#username').val();
-        		$.ajax({
-	                    url: 'registration/checking',
-	                    method: 'POST',
-	                    dataType: 'JSON',
-	                    data:{
-	            			username : uname,
-	                    },
-	                    success: function (data) {
-	                        if (data.check == 'true') {
-	                            $('#dupUsername').html("");
-	                            $('#errUsername').val("");
-	                        } else {
-	                            $('#dupUsername').html("Username already exists");
-	                            $('#errUsername').val("error");
-	                        }
-	                    },
-	                });
-        	})
-        	
+          </ul>
+        </div>
+      </nav>
 
-	        $('#regform').submit(function (e) {
-	            e.preventDefault();
-	            var error = false;
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dashboard</h1>
+          
+        </div>  
 
-	            var fname 		= $('#fname').val();
-	            var lname 		= $('#lname').val();
-	            var email 		= $('#email').val();
-	            var username 	= $('#username').val();
-	            var password 	= $('#password').val();
-	            var cpassword	= $('#cpassword').val();
-	            var dob 		= $('#dob').val();
-	            var school 		= $('#school').val();
-	            var college 	= $('#college').val();
-	            var uni 		= $('#uni').val();
-	            var errEmail 	= $('#errEmail').val();
-	            var errUsername = $('#errUsername').val();
+        <div>
+          <h2> </h2>
+        </div>
+        <!--personal details table-->
+       
+        <div>
+          <h5 style="color:gray;"> about Employee </h5>
+        </div>
+<div>
+        <table class="table">
+          <thead>
+            <tr>
+              <!-- <th scope="col">id</th> -->
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <form method="post" action="/admin/AddEmployee">
+          
 
-	            if(fname == ""){
-	                $('#error1').html("Required field");
-	                error = true;
-	            }
-	            else{
-	                $('#error1').html("");
-	            }
+          
+          <tbody>
+            <tr>
+              <!-- <td> <input  type="text" class="form-control" name="id" value="" ></td> -->
+              <td> <input  type="text" class="form-control" name="name" value="" ></td>
+              <td> <input  type="text" class="form-control" name="email" value="" ></td>
+            </tr>
+          </tbody>
+        </table>
+</div>
 
-	            if(lname == ""){
-	                $('#error2').html("Required field");
-	                error = true;
-	            }
-	            else{
-	                $('#error2').html("");
-	            }
-	            if(email == ""){
-	                $('#error3').html("Required field");
-	                error = true;
-	            }
-	            else{
-	                $('#error3').html("");
-	            }
 
-	            if(username == ""){
-	                $('#error4').html("Required field");
-	                error = true;
-	            }
-	            else{
-	                $('#error4').html("");
-	            }
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Phone no</th>
+      <th scope="col">username</th>
+      <th scope="col">password</th>
 
-	            if(password == ""){
-	                $('#error5').html("Required field");
-	                error = true;
-	            }
-	            else{
-	                $('#error5').html("");  
-	            }
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <input  type="text"  class="form-control" name="phone" value= "" ></td>
+      <td> <input  type="text" class="form-control" name="username" value="" > </td>
+      <td> <input  type="text" class="form-control" name="password" value="" > </td>
+    </tr>
+  </tbody>
 
-	            if(cpassword == ""){
-	                $('#error6').html("Required field");
-	                error = true;
-	            }
-	            else{
-	            	$('#error6').html(""); 
+  
+<div>
+  <h5 style="color:gray;">basic & contract info </h5>
+</div>
 
-	            	if(cpassword!=password){
-	            		$('#error7').html("Passwords don't match");
-	            		error=true;
-	            	}
-	            	else{
-	            		$('#error7').html("");
-	            	}
-	                 
-	            }
-	            if(!dob){
-	            	error = true;
-	            	$('#error8').html('Required field');
-	            }
-	            else{
-	            	$('#error8').html("");
-	            }
-	            
-	            if(errUsername=="error")
-	            {	
-	            	error=true;
-	            }
-	            
-	            if(errEmail=="error"){
-	            	error =true;
-	            }
-	            if(!error)
-	            {   
-	            	
-	                $.ajax({
-	                    url: '/registration',
-	                    method: 'POST',
-	                    dataType: 'JSON',
-	                    data:{
-	                        fname : fname,
-	            			lname : lname,
-	            			email : email,
-	            			username : username,
-	            			password : password,
-	            			dob : dob,
-	            			school : school,
-	            			college : college,
-	            			uni : uni,
-	                    },
-	                    success: function (data) {
-	                        if (data.status == 'valid') {
-	                            console.log('else');
-	                            window.location.href = '/login';
-	                        } else {
-	                            $('#warn-div').html('Username or Email already exists');
-	                        }
-	                    },
-	                });
-	            }
-	        });
-    	</script>
-    </body>
-</html>
+</table>
+<form method="post" action="/Admin/AddEmployee">
+<input type="submit" class="btn btn-info btn-lg btn-block"" value="Post">
+</form>
+</div>
+
+</form>
+
+
+</main>
+</div>
+</div>
+
+
+
+      </main>
+    </div>
+  </div>
+ 
+
+  <script src="../../assets/css/admin/jquery-3.4.1.min.js"></script>
+  <script src="../../assets/css/admin/popper.min.js"></script>
+  <script src="../../assets/css/admin/bootstrap.min.js"></script>
+
+
+
 </body>
+
 </html>
