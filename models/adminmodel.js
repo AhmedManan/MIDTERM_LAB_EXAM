@@ -127,6 +127,14 @@ module.exports = {
         });
     },
 
+    deleteProduct:function(name,callback){ //inner join used to delete from multiple table...
+        var sql="delete from product where name='"+name+"'";
+
+        db.execute(sql,function(status){
+            callback(status);
+        });
+    },
+
     sendNotice:function(value,callback){
         
         var today = new Date().toISOString().slice(0, 10)

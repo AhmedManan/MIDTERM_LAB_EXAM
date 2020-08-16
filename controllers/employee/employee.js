@@ -104,18 +104,18 @@ router.post('/deletepost', function(req, res){
 	
 });
 
-router.post('/deleteprofile', function(req, res){
+router.post('/deleteproduct', function(req, res){
 
-        var id = req.body.id;
+        var name = req.body.name;
        // var postid = req.body.postid;
-        console.log(id);
-        adminmodel.deleteAccount(id,function(status){
+        console.log(name);
+        adminmodel.deleteProduct(name,function(status){
                 if(status){
-                        res.redirect('/admin/users');
+                        res.redirect('/employee');
                 }
                 else{
 
-                        res.redirect('/admin/users');
+                        res.redirect('/employee');
 
 
                 }
