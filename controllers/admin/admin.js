@@ -28,6 +28,8 @@ router.get('/AddEmployee', function(req, res){
 	
 });
 
+
+
 router.get('/report', function(req, res){
 
         adminmodel.getReport(function(result){

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Employee</title>
+  <title>Employee: Add Product</title>
 
   <link rel="stylesheet" href="../../assets/css/admin/bootstrap.min.css">
 
@@ -60,13 +60,13 @@
             <li class="nav-item">
               <a class="nav-link" href="/employee/AddProduct">
                 <span data-feather="file"></span>
-                Add New Products
+                Add New Product
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin/users">
+              <a class="nav-link" href="/admin/AllEmployeeList">
                 <span data-feather="shopping-cart"></span>
-                View Products
+                View All Employee List
               </a>
             </li>
             <li class="nav-item">
@@ -74,9 +74,11 @@
                 <span data-feather="users"></span>
                 Notice
               </a>
+            </li>
           </ul>
 
-          
+
+          </ul>
         </div>
       </nav>
 
@@ -88,9 +90,71 @@
         </div>  
 
         <div>
-          <h2>Wellcome</h2>
+          <h2> </h2>
         </div>
+        <!--personal details table-->
        
+        <div>
+          <h5 style="color:gray;"> about product </h5>
+        </div>
+<div>
+        <table class="table">
+          <thead>
+            <tr>
+              <!-- <th scope="col">id</th> -->
+              <th scope="col">Name</th>
+            </tr>
+          </thead>
+          <form method="post" action="/employee/AddProduct">
+          
+
+          
+          <tbody>
+            <tr>
+              <!-- <td> <input  type="text" class="form-control" name="id" value="" ></td> -->
+              <td> <input  type="text" class="form-control" name="name" value="" ></td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+
+
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <input  type="text"  class="form-control" name="quantity" value= "" ></td>
+      <td> <input  type="text" class="form-control" name="price" value="" > </td>
+    </tr>
+  </tbody>
+
+  
+<div>
+  <h5 style="color:gray;">basic info </h5>
+</div>
+
+</table>
+<form method="post" action="/employee/AddProduct">
+<input type="submit" class="btn btn-info btn-lg btn-block"" value="Post">
+</form>
+</div>
+
+</form>
+
+
+</main>
+</div>
+</div>
+
+
+
       </main>
     </div>
   </div>

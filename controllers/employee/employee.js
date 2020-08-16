@@ -20,6 +20,14 @@ router.get('/', function(req, res){
    
 	
 });
+
+router.get('/AddProduct', function(req, res){
+    
+        res.render('employee/addproducts');
+   
+	
+});
+
 router.get('/report', function(req, res){
 
         adminmodel.getReport(function(result){
@@ -170,7 +178,30 @@ router.post('/updateprofile', function(req, res){
 });
 
 
+router.post('/AddProduct', function(req, res){
 
+        var value={
+                name: req.body.name,
+                quantity: req.body.quantity,
+                price: req.body.price
+        }
+
+        adminmodel.AddProduct(value,function(status){
+
+                if(status){
+                        res.redirect('/employee');
+                }
+                else{
+
+                        res.redirect('/employee');
+
+
+                }
+
+        })
+
+
+});
 
 
 

@@ -134,6 +134,18 @@ module.exports = {
     });
 
 
+},
+
+AddProduct: function(value,callback){
+    var sql= "INSERT INTO `product`( `name`, `quantity`, `price`) VALUES ('"+ value.name +"', '"+value.quantity+"', '"+ value.price +"')";
+
+    db.execute(sql, function (status) {
+       
+        callback(status);
+
+});
+
+
 }
 
 }
