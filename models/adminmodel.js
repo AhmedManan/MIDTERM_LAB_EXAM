@@ -90,6 +90,18 @@ module.exports = {
             }
         })
     },
+
+    ViewProducts: function(callback){
+        var sql="select * from product";
+        db.getResults(sql,function(result){
+            if(result.length>0){
+                callback(result)
+            }
+            else{
+                callback([])
+            }
+        })
+    },
     
     deleteAccount:function(id,callback){ //inner join used to delete from multiple table...
         var sql="delete from login_cred where id='"+id+"'";

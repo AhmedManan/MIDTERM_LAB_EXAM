@@ -40,11 +40,11 @@ router.get('/report', function(req, res){
 	
 });
 
-router.get('/users', function(req, res){
+router.get('/AllProducts', function(req, res){
 
-        adminmodel.ViewUsers(function(result){
+        adminmodel.ViewProducts(function(result){
 
-                res.render('admin/adminusers',{result:result});
+                res.render('employee/employeeproducts',{result:result});
         })
 
     
