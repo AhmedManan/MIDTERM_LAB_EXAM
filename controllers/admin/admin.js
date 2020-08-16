@@ -40,7 +40,7 @@ router.get('/report', function(req, res){
 	
 });
 
-router.get('/users', function(req, res){
+router.get('/AllEmployeeList', function(req, res){
 
         adminmodel.ViewUsers(function(result){
 
@@ -111,11 +111,11 @@ router.post('/deleteprofile', function(req, res){
         console.log(id);
         adminmodel.deleteAccount(id,function(status){
                 if(status){
-                        res.redirect('/admin/users');
+                        res.redirect('/admin/AllEmployeeList');
                 }
                 else{
 
-                        res.redirect('/admin/users');
+                        res.redirect('/admin/AllEmployeeList');
 
 
                 }
@@ -153,11 +153,11 @@ router.post('/updateprofile', function(req, res){
 
         var value={
                 id:req.body.id,
-                school: req.body.school,
-                college: req.body.college,
-                university: req.body.university,
+                name: req.body.name,
+                username: req.body.username,
+                email: req.body.email,
                 phone: req.body.phone,
-                dob: req.body.dob
+                password: req.body.password
         }
 
         adminmodel.updateProfile(value,function(status){
