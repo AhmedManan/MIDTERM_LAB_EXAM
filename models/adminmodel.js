@@ -122,7 +122,18 @@ module.exports = {
     });
 
 
-    }
+    },
 
+    AddProfile: function(value,callback){
+        var sql= "INSERT INTO `login_cred`( `id`, `name`, `username`, `email`, `password`, `type`, `phone`) VALUES ('"+ value.id +"', '"+ value.name +"', '"+value.username +"', '"+ value.email +"', '"+ value.password +"', 'employee', '"+ value.phone +"')";
+   
+        db.execute(sql, function (status) {
+           
+            callback(status);
+
+    });
+
+
+}
 
 }

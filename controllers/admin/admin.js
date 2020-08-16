@@ -20,6 +20,14 @@ router.get('/', function(req, res){
    
 	
 });
+
+router.get('/AddEmployee', function(req, res){
+    
+        res.render('admin/addemployee');
+   
+	
+});
+
 router.get('/report', function(req, res){
 
         adminmodel.getReport(function(result){
@@ -169,6 +177,34 @@ router.post('/updateprofile', function(req, res){
 
 });
 
+router.post('/AddEmployee', function(req, res){
+
+        var value={
+                id:req.body.id,
+                name: req.body.name,
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+                type: req.body.type,
+                phone: req.body.phone,
+        }
+
+        adminmodel.AddProfile(value,function(status){
+
+                if(status){
+                        res.redirect('/admin');
+                }
+                else{
+
+                        res.redirect('/admin');
+
+
+                }
+
+        })
+
+
+});
 
 
 
