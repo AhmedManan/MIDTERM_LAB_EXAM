@@ -102,6 +102,22 @@ module.exports = {
             }
         })
     },
+
+    viewProduct: function(name,callback){
+        console.log(name);
+        var sql="select * from product where name='"+name+"' ";
+      
+        db.getResults(sql,function(result){
+            if(result.length>0){
+                console.log(result)
+                callback(result)
+            }
+            else{
+                callback([])
+            }
+        })
+
+    },
     
     deleteAccount:function(id,callback){ //inner join used to delete from multiple table...
         var sql="delete from login_cred where id='"+id+"'";
@@ -126,6 +142,16 @@ module.exports = {
 
     updateProfile: function(value,callback){
         var sql="update login_cred set name='"+value.name+"',username='"+value.username+"',email='"+value.email+"',phone='"+value.phone+"',password='"+value.password+"' where id='"+value.id+"' ";
+   
+        db.execute(sql, function (status) {
+           
+            callback(status);
+
+    });
+},
+
+    updateProduct: function(value,callback){
+        var sql="update product set name='"+value.name+"',price='"+value.price+"',quantity='"+value.quantity+"' ";
    
         db.execute(sql, function (status) {
            

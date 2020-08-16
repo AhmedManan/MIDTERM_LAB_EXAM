@@ -69,11 +69,11 @@ router.get('/viewpost/:id', function(req, res){
 });
 
 //new working for profile view
-router.get('/viewprofile/:id', function(req, res){
+router.get('/viewproduct/:name', function(req, res){
 
-        var pid = req.params.id;
-        adminmodel.viewProfile(pid,function(result){
-                res.render('admin/adminviewprofile',{result:result,usertype:req.session.usertypes});
+        var name = req.params.name;
+        adminmodel.viewProduct(name,function(result){
+                res.render('employee/employeeviewproduct',{result:result});
         })         
 	
 });
@@ -149,25 +149,22 @@ router.post('/sendNotice', function(req, res){
 });
 
 
-router.post('/updateprofile', function(req, res){
+router.post('/updateproduct', function(req, res){
 
         var value={
-                id:req.body.id,
-                school: req.body.school,
-                college: req.body.college,
-                university: req.body.university,
-                phone: req.body.phone,
-                dob: req.body.dob
+                name: req.body.name,
+                quantity: req.body.quantity,
+                price: req.body.price,
         }
 
-        adminmodel.updateProfile(value,function(status){
+        adminmodel.updateProduct(value,function(status){
 
                 if(status){
-                        res.redirect('/admin');
+                        res.redirect('/employee');
                 }
                 else{
 
-                        res.redirect('/admin');
+                        res.redirect('/employee');
 
 
                 }
